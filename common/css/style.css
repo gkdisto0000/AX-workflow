@@ -468,3 +468,8 @@ pre {
   letter-spacing: 0.2px;
   box-shadow: 0 1px 6px 0 rgba(108,99,255,0.07);
 }
+ol li::marker {
+  color: var(--primary);
+  font-size: 1.1em;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
