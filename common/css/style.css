@@ -356,7 +356,7 @@ button:active {
     color: #fff;
     padding: 10px 22px;
     border-radius: 16px;
-    font-size: 1.02rem;
+    font-size: 0.8rem;
     font-weight: 500;
     pointer-events: none;
     opacity: 0;
