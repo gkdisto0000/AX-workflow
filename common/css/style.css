@@ -129,7 +129,7 @@ h1 {
   letter-spacing: 1px;
 }
 .page-index .step .label { background: var(--secondary); color: var(--point); font-size: 0.8rem; margin-bottom: 0;  margin-right: 6px; margin: 0.5rem 0; line-height: 100%; padding: 0.4rem 0.8rem;}
-.page-index .step.important, .page-index .step h3 { background: var(--primary); color: #fff; }
+.page-index .step.important, .page-index .step h3 { background: var(--primary); color: #fff; text-align: center;}
 .page-index .step h3 { font-size: 1.2rem; background: var(--primary); line-height: 100%; padding: 0.6rem 0.8rem; border-radius: 12px;}
 .page-index .step.important:hover { background: #554ee2; color: #fff; }
 
