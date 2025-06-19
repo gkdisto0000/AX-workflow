@@ -399,6 +399,7 @@ button:active {
     cursor: pointer;
     z-index: 10001;
     transition: color 0.2s;
+    box-shadow: none;
 }
 .img-popup-overlay .close-btn:hover {
     color: var(--primary);

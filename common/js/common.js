@@ -1,6 +1,7 @@
     // 이미지 클릭 시 전체화면 팝업
     document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.img img').forEach(function(img) {
+          // .img 태그의 자식 img 모두에 안내 문구 적용
           img.addEventListener('click', function(e) {
             // 팝업 오버레이 생성
             const overlay = document.createElement('div');
@@ -37,19 +38,25 @@
             closeBtn.focus();
           });
           // 안내 문구 오버레이
-          const parent = img.closest('.img');
           let guide;
           function showGuide() {
             if (!guide) {
               guide = document.createElement('div');
               guide.className = 'img-hover-guide';
               guide.innerText = '이미지를 클릭하면 자세히 보실 수 있습니다.';
-              parent.appendChild(guide);
+              // img의 부모(.img)에 추가, 위치는 img 중앙
+              img.parentElement.appendChild(guide);
+              // guide 위치 조정 (img 기준 중앙)
+              const rect = img.getBoundingClientRect();
+              guide.style.position = 'absolute';
+              guide.style.left = img.offsetLeft + img.offsetWidth/2 + 'px';
+              guide.style.top = img.offsetTop + img.offsetHeight/2 + 'px';
+              guide.style.transform = 'translate(-50%, -50%)';
             }
-            parent.classList.add('show-guide');
+            img.parentElement.classList.add('show-guide');
           }
           function hideGuide() {
-            parent.classList.remove('show-guide');
+            img.parentElement.classList.remove('show-guide');
             if (guide) guide.remove();
             guide = null;
           }
