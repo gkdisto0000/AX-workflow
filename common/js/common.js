@@ -74,23 +74,23 @@
         });
       });
 
-    // 복사 버튼 기능 (pre 태그 복사)
+    // 복사 버튼 기능 (pre, code 태그 복사)
     document.addEventListener('DOMContentLoaded', function() {
       document.querySelectorAll('.copy-btn').forEach(function(btn) {
         btn.addEventListener('click', function(e) {
-          // 인접 pre 태그 찾기 (이전 형제)
-          let pre = btn.previousElementSibling;
-          if (!pre || pre.tagName.toLowerCase() !== 'pre') {
-            // pre 태그 내부에 버튼이 있을 경우, 부모가 pre
-            if (btn.parentElement && btn.parentElement.tagName.toLowerCase() === 'pre') {
-              pre = btn.parentElement;
+          // 인접 pre 또는 code 태그 찾기 (이전 형제)
+          let target = btn.previousElementSibling;
+          if (!target || (target.tagName.toLowerCase() !== 'pre' && target.tagName.toLowerCase() !== 'code')) {
+            // 버튼이 pre/code 태그 내부에 있을 경우, 부모가 pre/code
+            if (btn.parentElement && (btn.parentElement.tagName.toLowerCase() === 'pre' || btn.parentElement.tagName.toLowerCase() === 'code')) {
+              target = btn.parentElement;
             }
           }
-          if (pre && pre.tagName.toLowerCase() === 'pre') {
-            // pre 내부에서 .copy-btn 버튼을 모두 임시로 숨기고 텍스트만 복사
-            const btns = pre.querySelectorAll('.copy-btn');
+          if (target && (target.tagName.toLowerCase() === 'pre' || target.tagName.toLowerCase() === 'code')) {
+            // 내부 .copy-btn 버튼을 모두 임시로 숨기고 텍스트만 복사
+            const btns = target.querySelectorAll('.copy-btn');
             btns.forEach(b => b.style.display = 'none');
-            const text = pre.innerText.trim();
+            const text = target.innerText.trim();
             btns.forEach(b => b.style.display = '');
             navigator.clipboard.writeText(text).then(function() {
               alert('복사 되었습니다.');

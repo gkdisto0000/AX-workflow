@@ -268,12 +268,13 @@ pre, code {
   background: #f3f4fa;
   color: var(--point);
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: 20px 12px;
   font-size: 0.98em;
   font-family: 'Menlo', 'Consolas', 'monospace';
   margin: 8px 0;
   display: block;
   overflow-x: auto;
+  position: relative;
 }
 .section-divider {
   border: none;
@@ -390,8 +391,8 @@ button:active {
 }
 .img-popup-overlay .close-btn {
     position: absolute;
-    top: 32px;
-    right: 40px;
+    top: 20px;
+    right: 20px;
     font-size: 2.2rem;
     color: #fff;
     background: none;
